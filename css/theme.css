@@ -320,7 +320,8 @@ li {
 }
 
 ul.nav-pills > li.uniqueButton{
-	background-color: #FFF;
+	position: relative;
+bottom: 25px;
 }
 
 html:not(.boxed) #header.header-full-width .header-container {
@@ -4806,6 +4807,12 @@ html.dark #footer .newsletter form .btn-default {
 	background-color: #21262d;
 	border-color: #21262d;
 	color: #777;
+}
+
+.textInsideBanner{
+	width: 100px;
+	height: 100px;
+	background-color:red;
 }
 
 /* Responsive */
