@@ -9,6 +9,12 @@ html {
 	box-shadow: none !important;
 }
 
+p {
+	clear: left;
+	text-align: justify;
+	float:left;
+}
+
 body {
 	background-color: #FFF;
 	color: #777;
@@ -3508,6 +3514,7 @@ html.dark .text-muted {
 	width: 80%;
 	float: left;
 }
+
 
 @media (min-width: 768px) {
 	.col-sm-1-5 {
