@@ -3521,6 +3521,11 @@ html.dark .text-muted {
 	float: left;
 }
 
+.containerForPics{
+	width: 100% ;
+	background-image: url("img/imagen2.png");
+}
+
 
 @media (min-width: 768px) {
 	.col-sm-1-5 {
