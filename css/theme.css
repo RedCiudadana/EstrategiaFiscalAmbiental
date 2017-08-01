@@ -3579,6 +3579,17 @@ html.dark .text-muted {
 	text-transform: uppercase;
 }
 
+.newsForm{
+	width: 300px;
+	height: 40px;
+	position: absolute;
+	left: 800px;
+	background-color: transparent;
+	color: #FFF;
+	border: 2px solid #FFF;
+	bottom:50px;
+}
+
 
 
 @media (min-width: 768px) {
