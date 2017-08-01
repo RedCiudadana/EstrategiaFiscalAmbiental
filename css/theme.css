@@ -38,6 +38,7 @@ ul.texts{
 	float:left;
 }
 
+
 /* Responsive */
 @media (max-width: 479px) {
 	body {
@@ -3524,6 +3525,20 @@ html.dark .text-muted {
 .containerForPics{
 	width: 100% ;
 	background-image: url("img/imagen2.png");
+	position: relative;
+}
+
+.containerForPics h1{
+	position: absolute;
+	color: #FFF;
+	bottom: 80%;
+	left: 45%;
+}
+
+#law1 {
+	position: absolute;
+	bottom: 350px;
+	left: 350px;
 }
 
 
