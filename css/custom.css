@@ -1,1 +1,25 @@
 /* Add here all your CSS customizations */
+a {
+    color: #777777;
+}
+
+ul.nav-pills > li.active > a {
+    background: #005b7f;
+}
+
+@media (min-width: 992px) {
+    #header .header-nav-main nav > ul > li.open > a,
+    #header .header-nav-main nav > ul > li:hover > a {
+        background: #005b7f;
+    }
+}
+
+#footer {
+    background: #ebebeb;
+    border-top: 4px solid #ebebeb;
+}
+
+#footer .footer-copyright {
+    background: #ebebeb;
+    border-top: 4px solid #ebebeb;
+}
