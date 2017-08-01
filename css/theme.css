@@ -3538,8 +3538,47 @@ html.dark .text-muted {
 #law1 {
 	position: absolute;
 	bottom: 350px;
-	left: 350px;
+	left: 300px;
 }
+
+#law2 {
+	position: absolute;
+	bottom: 150px;
+	left: 300px;
+}
+
+#law3 {
+	position: absolute;
+	bottom: 350px;
+	left: 835px;
+}
+
+#law4 {
+	position: absolute;
+	bottom: 150px;
+	left: 800px;
+}
+
+.newsContainer{
+	width: 100%;
+	background-color: rgb( 168, 212, 29 ) ;
+	height: 250px;
+	position: relative;
+}
+
+.headerText{
+	left: 100px;
+    width: 180px;
+    position: absolute;
+    top: 50px;
+}
+
+.headerText h4{
+	color:#FFF;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
 
 
 @media (min-width: 768px) {
