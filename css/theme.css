@@ -3587,10 +3587,35 @@ html.dark .text-muted {
 	background-color: transparent;
 	color: #FFF;
 	border: 2px solid #FFF;
-	bottom:50px;
+	top:80px;
 }
 
+.dateContainer{
+	position: relative;
+	width: 250px;
+	height: 200px;
+	background-color:#000;
+}
 
+.dateContainer.firstContainer{
+	top: 100px;
+	left: 159px;
+}
+
+.dateContainer.secondContainer{
+	top: -100px;
+	left: 460px;
+}
+
+.dateContainer.thirdContainer{
+	top: -299px;
+	left: 763px;
+}
+
+.newsForAll{
+	width: 100%;
+	height:400px;
+}
 
 @media (min-width: 768px) {
 	.col-sm-1-5 {
