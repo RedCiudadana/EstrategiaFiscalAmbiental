@@ -3644,6 +3644,17 @@ html.dark .text-muted {
 	top: 346px;
 }
 
+.rev-slidebg{
+	position: relative;
+}
+
+.testing{
+	color:red;
+	width: 100px;
+	height: 100px;
+	position: absolute;
+}
+
 .justDate{
   position:relative;
   left:10px;
