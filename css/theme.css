@@ -3655,6 +3655,46 @@ html.dark .text-muted {
 	position: absolute;
 }
 
+.mainContainer{
+    position: absolute;
+    width: 487px;
+    height: 157px;
+    top: 25%;
+    left: 50%;
+}
+
+.mainTitle2{
+  position:absolute;
+  top:23px;
+  color:rgb(5,79,108);
+  text-transform:uppercase;
+}
+
+.mainTitle{
+  color:rgb(5,79,108);
+  position:absolute;
+  text-transform:uppercase;
+  
+}
+.mainText{
+  top:75px;
+  position:absolute;
+  font-weight: bold;
+  color:#FFF;
+}
+
+.transparentButton{
+    position: absolute;
+    background-color: transparent;
+    border: 1px solid #FFF;
+    cursor: pointer;
+    top: 57%;
+    left: 50%;
+    border-radius: 5px;
+    color: #FFF;
+    width: 5%;
+}
+
 .justDate{
   position:relative;
   left:10px;
