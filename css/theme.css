@@ -3692,8 +3692,16 @@ html.dark .text-muted {
     left: 50%;
     border-radius: 5px;
     color: #FFF;
-    width: 5%;
+    width: 6%;
+    height: 7%;
 }
+
+.transparentButton:hover{
+    position: absolute;
+    background-color: white;
+    color:rgb(5,79,108);
+}
+
 
 .justDate{
   position:relative;
