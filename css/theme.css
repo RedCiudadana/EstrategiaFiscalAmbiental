@@ -38,6 +38,7 @@ ul.texts{
 	float:left;
 }
 
+
 /* Responsive */
 @media (max-width: 479px) {
 	body {
@@ -471,6 +472,8 @@ html #header.header-transparent-bottom-border .header-body {
 
 html.sticky-header-active #header .header-body {
 	position: fixed;
+	height: 164px;
+    padding: 40px;
 	border-bottom-color: #e9e9e9;
 	box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
 }
@@ -3520,12 +3523,6 @@ html.dark .text-muted {
 	width: 80%;
 	float: left;
 }
-
-.containerForPics{
-	width: 100% ;
-	background-image: url("img/imagen2.png");
-}
-
 
 @media (min-width: 768px) {
 	.col-sm-1-5 {
