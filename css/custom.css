@@ -86,21 +86,20 @@ ul.nav-pills > li.active > a {
 .newsContainer {
     width: 100%;
     background-color: rgb( 168, 212, 29 ) ;
-    height: 250px;
-    position: relative;
 }
 
-.headerText {
-    left: 100px;
-    width: 180px;
-    position: absolute;
-    top: 50px;
-}
 
 .headerText h4 {
     color:#FFF;
     font-weight: bold;
     text-transform: uppercase;
+}
+
+.form-control{
+    background-color: transparent;
+    color: #FFF;
+    border: 2px solid #FFF;
+    border-radius: 2%;
 }
 
 .newsForm {
