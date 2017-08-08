@@ -33,19 +33,24 @@ ul.nav-pills > li.active > a {
     padding: 10px 15px;
 }
 
+@media (max-width: 767px) {
+    .transparentButton {
+        padding: 5px 8px;
+    }
+}
+
 .transparentButton:hover {
     background-color: white;
     color: rgb(5,79,108);
 }
 
-.mainContainer .mainTitle,
-.mainContainer .mainTitle2 {
+.text-strong {
     font-weight: bold;
 }
 
 .containerForPics{
     width: 100% ;
-    background-image: url("img/imagen2.png");
+    background-image: url('img/imagen2.png');
     position: relative;
 }
 
@@ -57,9 +62,6 @@ ul.nav-pills > li.active > a {
 }
 
 #law1 {
-    position: absolute;
-    bottom: 350px;
-    left: 20%;
 }
 
 #law2 {
@@ -89,21 +91,20 @@ ul.nav-pills > li.active > a {
 .newsContainer {
     width: 100%;
     background-color: rgb( 168, 212, 29 ) ;
-    height: 250px;
-    position: relative;
 }
 
-.headerText {
-    left: 100px;
-    width: 180px;
-    position: absolute;
-    top: 50px;
-}
 
 .headerText h4 {
     color:#FFF;
     font-weight: bold;
     text-transform: uppercase;
+}
+
+.form-control{
+    background-color: transparent;
+    color: #FFF;
+    border: 2px solid #FFF;
+    border-radius: 2%;
 }
 
 .newsForm {
@@ -118,11 +119,17 @@ ul.nav-pills > li.active > a {
 }
 
 .dateContainer {
-    position: relative;
-    width: 250px;
-    height: 200px;
+    height: 5%;
     background-color:#000;
+    display: block;
 }
+
+.testingBlock{
+    height: 250px;
+    background-color:#000;
+    display: block;
+}
+
 
 .dateContainer.firstContainer {
     top: 100px;
@@ -174,24 +181,22 @@ ul.nav-pills > li.active > a {
     position: absolute;
 }
 
-.mainContainer{
-    position: absolute;
-    width: 487px;
-    height: 157px;
-    top: 25%;
-    left: 50%;
-}
-
-h3.mainTitle {
+.title h3 {
     color: rgb(5,79,108);
     text-transform: uppercase;
     margin-bottom: 0;
 }
 
-h1.mainTitle2 {
+.title h1 {
   color: rgb(5,79,108);
   text-transform: uppercase;
   margin-bottom: 0;
+}
+
+@media (max-width: 767px) {
+    .title h1 {
+        font-size: 1.6em;
+    }
 }
 
 .mainText {
@@ -201,13 +206,12 @@ h1.mainTitle2 {
 
 .justDate {
     position:relative;
-    left:10px;
-    top:30px;
     width:50px;
     height:50px;
     background-color:blue;
     color:#FFF;
     text-align:center;
+    margin-top:10% ;
 }
 
 .titleUnder {
@@ -225,4 +229,46 @@ h1.mainTitle2 {
 .newsForAll {
     width: 100%;
     height: 700px;
+}
+
+/*
+ * Based on:
+ * https://stackoverflow.com/questions/20547819/vertical-align-with-bootstrap-3
+ */
+.vertical-align {
+    display: flex;
+    align-items: center;
+}
+
+.header-logo img {
+    width: 130px;
+}
+
+html.sticky-header-active #header .header-body {
+    height: inherit;
+    padding: inherit;
+}
+
+.top-buffer {
+    margin-top: 20px;
+}
+
+video {
+    width: 400px;
+}
+
+@media (max-width: 767px) {
+    video {
+        width: 290px;
+    }
+}
+
+#iniciativas-container {
+    background-image: url(../img/imagen2.png);
+}
+
+@media (max-width: 767px) {
+    #iniciativas-container img {
+        width: 100%;
+    }
 }
