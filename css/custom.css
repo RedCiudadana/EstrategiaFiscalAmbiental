@@ -33,6 +33,12 @@ ul.nav-pills > li.active > a {
     padding: 10px 15px;
 }
 
+@media (max-width: 767px) {
+    .transparentButton {
+        padding: 5px 8px;
+    }
+}
+
 .transparentButton:hover {
     background-color: white;
     color: rgb(5,79,108);
@@ -189,7 +195,7 @@ ul.nav-pills > li.active > a {
 
 @media (max-width: 767px) {
     .title h1 {
-        font-size: 2.3em;
+        font-size: 1.6em;
     }
 }
 
@@ -241,4 +247,22 @@ ul.nav-pills > li.active > a {
 html.sticky-header-active #header .header-body {
     height: inherit;
     padding: inherit;
+}
+
+.top-buffer {
+    margin-top: 20px;
+}
+
+video {
+    width: 400px;
+}
+
+@media (max-width: 767px) {
+    video {
+        width: 290px;
+    }
+}
+
+#iniciativas-container {
+    background-image: url(../img/imagen2.png);
 }
