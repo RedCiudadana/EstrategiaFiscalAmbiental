@@ -266,3 +266,9 @@ video {
 #iniciativas-container {
     background-image: url(../img/imagen2.png);
 }
+
+@media (max-width: 767px) {
+    #iniciativas-container img {
+        width: 100%;
+    }
+}
