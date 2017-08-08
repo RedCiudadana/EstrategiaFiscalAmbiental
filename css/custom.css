@@ -38,8 +38,7 @@ ul.nav-pills > li.active > a {
     color: rgb(5,79,108);
 }
 
-.mainContainer .mainTitle,
-.mainContainer .mainTitle2 {
+.text-strong {
     font-weight: bold;
 }
 
@@ -176,24 +175,22 @@ ul.nav-pills > li.active > a {
     position: absolute;
 }
 
-.mainContainer{
-    position: absolute;
-    width: 487px;
-    height: 157px;
-    top: 25%;
-    left: 50%;
-}
-
-h3.mainTitle {
+.title h3 {
     color: rgb(5,79,108);
     text-transform: uppercase;
     margin-bottom: 0;
 }
 
-h1.mainTitle2 {
+.title h1 {
   color: rgb(5,79,108);
   text-transform: uppercase;
   margin-bottom: 0;
+}
+
+@media (max-width: 767px) {
+    .title h1 {
+        font-size: 2.3em;
+    }
 }
 
 .mainText {
