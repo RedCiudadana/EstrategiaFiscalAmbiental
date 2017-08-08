@@ -236,3 +236,12 @@ h1.mainTitle2 {
     display: flex;
     align-items: center;
 }
+
+.header-logo img {
+    width: 130px;
+}
+
+html.sticky-header-active #header .header-body {
+    height: inherit;
+    padding: inherit;
+}
