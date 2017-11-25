@@ -120,13 +120,6 @@ input.text-white:-moz-placeholder { /* Firefox 18- */
     background-color: rgb(168, 212, 29);
 }
 
-.form-control{
-    background-color: transparent;
-    color: #FFF;
-    border: 2px solid #FFF;
-    border-radius: 2%;
-}
-
 .newsForm {
     width: 300px;
     height: 40px;
@@ -326,4 +319,37 @@ video {
     .iniciativas-container img {
         margin: 10px 0px;
     }
+}
+
+/* Customización de botón de envío de correo */
+.transparent-input {
+    background-color: transparent;
+    color: #FFF;
+    border: 2px solid #FFF;
+    border-radius: 2%;
+}
+
+.transparent-input:focus {
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+    border-color: #FFF;
+}
+
+button.transparent-input:hover {
+    color: rgb(168, 212, 29);
+    background-color: #FFF;
+    border-color: #FFF;
+}
+
+/* Customización de font en placeholder de campo para correo */
+#email-field::-webkit-input-placeholder {
+   font-style: italic;
+}
+#email-field:-moz-placeholder {
+   font-style: italic;
+}
+#email-field::-moz-placeholder {
+   font-style: italic;
+}
+#email-field:-ms-input-placeholder {
+   font-style: italic;
 }
