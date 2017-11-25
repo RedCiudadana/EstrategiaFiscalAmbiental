@@ -288,6 +288,10 @@ video {
     }
 }
 
+#iniciativas-container h1 {
+    margin: 0 0 16px 0;
+}
+
 /* Customización de links de banner superior */
 #header .header-nav-main nav > ul > li > a {
     text-transform: none;
