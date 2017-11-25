@@ -50,24 +50,26 @@ input.text-white:-moz-placeholder { /* Firefox 18- */
     border-top: 4px solid #ebebeb;
 }
 
-.transparentButton {
-    background-color: transparent;
+.moreInfoButton {
+    background-color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: rgb(5,79,108);
     border: 1px solid #FFF;
     cursor: pointer;
-    border-radius: 5px;
-    color: #FFF;
-    padding: 10px 15px;
+    border-radius: 7px;
+    padding: 6px 9px;
 }
 
 @media (max-width: 767px) {
-    .transparentButton {
+    .moreInfoButton {
         padding: 5px 8px;
     }
 }
 
-.transparentButton:hover {
-    background-color: white;
-    color: rgb(5,79,108);
+.moreInfoButton:hover {
+    background-color: transparent;
+    color: #FFF;
 }
 
 .text-strong {
@@ -257,17 +259,6 @@ input.text-white:-moz-placeholder { /* Firefox 18- */
     margin: 5px 5px 5px 0;
 }
 
-
-
-/* Header Nav Main Mobile */
-@media (max-width: 991px) {
-    #header .header-nav-main nav > ul li {
-        border-bottom: none;
-    }
-}
-
-
-
 html.sticky-header-active #header .header-body {
     height: inherit;
     padding: inherit;
@@ -313,4 +304,22 @@ video {
 #header .header-body {
     border-top: 25px solid rgb(168, 212, 29);
     padding: 0px;
+}
+
+/* Customización de bordes de imágenes de iniciativas */
+.iniciativas-container img {
+    margin: 20px;
+}
+
+/* Customización de bordes en menú desplegable móvil */
+/* Header Nav Main Mobile */
+@media (max-width: 991px) {
+    #header .header-nav-main nav > ul li {
+        border-bottom: none;
+    }
+
+    /* Customización de bordes de imágenes de iniciativas */
+    .iniciativas-container img {
+        margin: 10px 0px;
+    }
 }
