@@ -1,0 +1,282 @@
+/* Add here all your CSS customizations */
+a {
+    color: #777777;
+}
+
+ul.nav-pills > li.active > a {
+    background: #005b7f;
+}
+
+/** Taken from: https://css-tricks.com/almanac/selectors/p/placeholder/ */
+input.text-white::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: #ffffff;
+}
+input.text-white::-moz-placeholder { /* Firefox 19+ */
+  color: #ffffff;
+}
+input.text-white:-ms-input-placeholder { /* IE 10+ */
+  color: #ffffff;
+}
+input.text-white:-moz-placeholder { /* Firefox 18- */
+  color: #ffffff;
+}
+
+.text-white {
+    color: #ffffff;
+}
+
+.news-date {
+    background: #005b7f;
+    color: #ffffff;
+    font-weight: bold;
+    padding: 5px 3px;
+    line-height: 15px;
+}
+
+@media (min-width: 992px) {
+    #header .header-nav-main nav > ul > li.open > a,
+    #header .header-nav-main nav > ul > li:hover > a {
+        background: #005b7f;
+    }
+}
+
+#footer {
+    background: #ebebeb;
+    border-top: 4px solid #ebebeb;
+}
+
+#footer .footer-copyright {
+    background: #ebebeb;
+    border-top: 4px solid #ebebeb;
+}
+
+.transparentButton {
+    background-color: transparent;
+    border: 1px solid #FFF;
+    cursor: pointer;
+    border-radius: 5px;
+    color: #FFF;
+    padding: 10px 15px;
+}
+
+@media (max-width: 767px) {
+    .transparentButton {
+        padding: 5px 8px;
+    }
+}
+
+.transparentButton:hover {
+    background-color: white;
+    color: rgb(5,79,108);
+}
+
+.text-strong {
+    font-weight: bold;
+}
+
+.containerForPics{
+    width: 100% ;
+    background-image: url('img/imagen2.png');
+    position: relative;
+}
+
+.containerForPics h1{
+    position: absolute;
+    color: #FFF;
+    bottom: 80%;
+    left: 43%;
+}
+
+#law1 {
+}
+
+#law2 {
+    position: absolute;
+    bottom: 150px;
+    left: 20%;
+}
+
+#law3 {
+    position: absolute;
+    bottom: 350px;
+    left: 55%;
+}
+
+#law4 {
+    position: absolute;
+    bottom: 150px;
+    left: 53%;
+}
+
+.justFixed {
+    width: 100px;
+    height: 100px;
+    position: fixed;
+}
+
+.newsletter {
+    background-color: rgb(168, 212, 29);
+}
+
+.form-control{
+    background-color: transparent;
+    color: #FFF;
+    border: 2px solid #FFF;
+    border-radius: 2%;
+}
+
+.newsForm {
+    width: 300px;
+    height: 40px;
+    position: absolute;
+    left: 800px;
+    background-color: transparent;
+    color: #FFF;
+    border: 2px solid #FFF;
+    top:80px;
+}
+
+.dateContainer {
+    height: 5%;
+    background-color:#000;
+    display: block;
+}
+
+.dateContainer.firstContainer {
+    top: 100px;
+    left: 159px;
+}
+
+.dateContainer.secondContainer {
+    top: -100px;
+    left: 460px;
+}
+
+.dateContainer.thirdContainer {
+    top: -299px;
+    left: 763px;
+}
+
+.containerUnder1 {
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    left: 175px;
+    top: 346px;
+}
+
+.containerUnder2 {
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    left: 475px;
+    top: 346px;
+}
+
+.containerUnder3 {
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    left: 776px;
+    top: 346px;
+}
+
+.rev-slidebg {
+    position: relative;
+}
+
+.testing {
+    color:red;
+    width: 100px;
+    height: 100px;
+    position: absolute;
+}
+
+.title h3 {
+    color: rgb(5,79,108);
+    text-transform: uppercase;
+    margin-bottom: 0;
+}
+
+.title h1 {
+  color: rgb(5,79,108);
+  text-transform: uppercase;
+  margin-bottom: 0;
+}
+
+@media (max-width: 767px) {
+    .title h1 {
+        font-size: 1.6em;
+    }
+}
+
+.mainText {
+    font-weight: bold;
+    color: #FFF;
+}
+
+.titleUnder {
+  position: absolute;
+  left: 100px;
+  top: 25px;
+}
+
+.textUnder {
+    position: absolute;
+    left: 10px;
+    top: 100px;
+}
+
+.newsForAll {
+    width: 100%;
+    height: 700px;
+}
+
+/*
+ * Based on:
+ * https://stackoverflow.com/questions/20547819/vertical-align-with-bootstrap-3
+ */
+.vertical-align {
+    display: flex;
+    align-items: center;
+}
+
+@media (min-width: 992px) {
+    .newsletter-rows-container {
+        display: flex;
+        align-items: center;
+    }
+}
+
+.header-logo img {
+    width: 130px;
+}
+
+html.sticky-header-active #header .header-body {
+    height: inherit;
+    padding: inherit;
+}
+
+.top-buffer {
+    margin-top: 20px;
+}
+
+video {
+    width: 400px;
+}
+
+@media (max-width: 767px) {
+    video {
+        width: 290px;
+    }
+}
+
+#iniciativas-container {
+    background-image: url(../img/imagen2.png);
+}
+
+@media (max-width: 767px) {
+    #iniciativas-container img {
+        width: 100%;
+    }
+}
