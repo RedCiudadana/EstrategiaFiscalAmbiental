@@ -353,3 +353,14 @@ button.transparent-input:hover {
 #email-field:-ms-input-placeholder {
    font-style: italic;
 }
+
+/* Customización del footer */
+#footer {
+    margin-top: 0px;
+    padding-top: 0px;
+}
+
+#footer .footer-copyright {
+    padding: 10px 0px;
+    margin-top: 0px;
+}
