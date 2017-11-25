@@ -248,9 +248,25 @@ input.text-white:-moz-placeholder { /* Firefox 18- */
     }
 }
 
+/* Customización del tamaño del logo y su borde */
 .header-logo img {
-    width: 130px;
+    width: 150px;
 }
+
+#header.header-narrow .header-logo img {
+    margin: 5px 5px 5px 0;
+}
+
+
+
+/* Header Nav Main Mobile */
+@media (max-width: 991px) {
+    #header .header-nav-main nav > ul li {
+        border-bottom: none;
+    }
+}
+
+
 
 html.sticky-header-active #header .header-body {
     height: inherit;
@@ -279,4 +295,22 @@ video {
     #iniciativas-container img {
         width: 100%;
     }
+}
+
+/* Customización de links de banner superior */
+#header .header-nav-main nav > ul > li > a {
+    text-transform: none;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+/* Customización del burger menu background color */
+#header .header-btn-collapse-nav {
+    background: #005b7f;
+}
+
+/* Customización del borde superior del header para hacerlo verdecito */
+#header .header-body {
+    border-top: 25px solid rgb(168, 212, 29);
+    padding: 0px;
 }
