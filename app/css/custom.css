@@ -1,366 +1,192 @@
-/* Add here all your CSS customizations */
-a {
-    color: #777777;
+body {
+    font-family: "Raleway", Arial, sans-serif;
 }
 
-ul.nav-pills > li.active > a {
-    background: #005b7f;
+.social-icons.custom-social-icons-style-1 li {
+    box-shadow: none;
 }
 
-/** Taken from: https://css-tricks.com/almanac/selectors/p/placeholder/ */
-input.text-white::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-  color: #ffffff;
-}
-input.text-white::-moz-placeholder { /* Firefox 19+ */
-  color: #ffffff;
-}
-input.text-white:-ms-input-placeholder { /* IE 10+ */
-  color: #ffffff;
-}
-input.text-white:-moz-placeholder { /* Firefox 18- */
-  color: #ffffff;
-}
-
-.text-white {
-    color: #ffffff;
-}
-
-.news-date {
-    background: #005b7f;
-    color: #ffffff;
-    font-weight: bold;
-    padding: 5px 3px;
-    line-height: 15px;
-}
-
-@media (min-width: 992px) {
-    #header .header-nav-main nav > ul > li.open > a,
-    #header .header-nav-main nav > ul > li:hover > a {
-        background: #005b7f;
-    }
-}
-
-#footer {
-    background: #ebebeb;
-    border-top: 4px solid #ebebeb;
-}
-
-#footer .footer-copyright {
-    background: #ebebeb;
-    border-top: 4px solid #ebebeb;
-}
-
-.moreInfoButton {
-    background-color: white;
-    font-weight: 600;
-    text-transform: uppercase;
-    color: rgb(5,79,108);
-    border: 1px solid #FFF;
-    cursor: pointer;
-    border-radius: 7px;
-    padding: 6px 9px;
-}
-
-@media (max-width: 767px) {
-    .moreInfoButton {
-        padding: 5px 8px;
-    }
-}
-
-.moreInfoButton:hover {
-    background-color: transparent;
-    color: #FFF;
-}
-
-.text-strong {
-    font-weight: bold;
-}
-
-.containerForPics{
-    width: 100% ;
-    background-image: url('img/imagen2.png');
-    position: relative;
-}
-
-.containerForPics h1{
-    position: absolute;
-    color: #FFF;
-    bottom: 80%;
-    left: 43%;
-}
-
-#law1 {
-}
-
-#law2 {
-    position: absolute;
-    bottom: 150px;
-    left: 20%;
-}
-
-#law3 {
-    position: absolute;
-    bottom: 350px;
-    left: 55%;
-}
-
-#law4 {
-    position: absolute;
-    bottom: 150px;
-    left: 53%;
-}
-
-.justFixed {
-    width: 100px;
-    height: 100px;
-    position: fixed;
-}
-
-.newsletter {
-    background-color: rgb(168, 212, 29);
-}
-
-.newsForm {
-    width: 300px;
-    height: 40px;
-    position: absolute;
-    left: 800px;
-    background-color: transparent;
-    color: #FFF;
-    border: 2px solid #FFF;
-    top:80px;
-}
-
-.dateContainer {
-    height: 5%;
-    background-color:#000;
-    display: block;
-}
-
-.dateContainer.firstContainer {
-    top: 100px;
-    left: 159px;
-}
-
-.dateContainer.secondContainer {
-    top: -100px;
-    left: 460px;
-}
-
-.dateContainer.thirdContainer {
-    top: -299px;
-    left: 763px;
-}
-
-.containerUnder1 {
-    position: absolute;
-    width: 250px;
-    height: 250px;
-    left: 175px;
-    top: 346px;
-}
-
-.containerUnder2 {
-    position: absolute;
-    width: 250px;
-    height: 250px;
-    left: 475px;
-    top: 346px;
-}
-
-.containerUnder3 {
-    position: absolute;
-    width: 250px;
-    height: 250px;
-    left: 776px;
-    top: 346px;
-}
-
-.rev-slidebg {
-    position: relative;
-}
-
-.testing {
-    color:red;
-    width: 100px;
-    height: 100px;
-    position: absolute;
-}
-
-.title h3 {
-    color: rgb(5,79,108);
-    text-transform: uppercase;
-    margin-bottom: 0;
-}
-
-.title h1 {
-  color: rgb(5,79,108);
-  text-transform: uppercase;
-  margin-bottom: 0;
-}
-
-@media (max-width: 767px) {
-    .title h1 {
-        font-size: 1.6em;
-    }
-}
-
-.mainText {
-    font-weight: bold;
-    color: #FFF;
-}
-
-.titleUnder {
-  position: absolute;
-  left: 100px;
-  top: 25px;
-}
-
-.textUnder {
-    position: absolute;
-    left: 10px;
-    top: 100px;
-}
-
-.newsForAll {
-    width: 100%;
-    height: 700px;
-}
-
-/*
- * Based on:
- * https://stackoverflow.com/questions/20547819/vertical-align-with-bootstrap-3
- */
-.vertical-align {
-    display: flex;
-    align-items: center;
-}
-
-@media (min-width: 992px) {
-    .newsletter-rows-container {
-        display: flex;
-        align-items: center;
-    }
-}
-
-/* Customización del tamaño del logo y su borde */
-.header-logo img {
-    width: 150px;
-}
-
-#header.header-narrow .header-logo img {
-    margin: 5px 5px 5px 0;
-}
-
-html.sticky-header-active #header .header-body {
-    height: inherit;
-    padding: inherit;
-}
-
-.top-buffer {
-    margin-top: 20px;
-}
-
-video {
-    width: 400px;
-}
-
-@media (max-width: 767px) {
-    video {
-        width: 290px;
-    }
-}
-
-#iniciativas-container {
-    background-image: url(../img/imagen2.png);
-}
-
-@media (max-width: 767px) {
-    #iniciativas-container img {
-        width: 100%;
-    }
-}
-
-#iniciativas-container h1 {
-    margin: 0 0 16px 0;
-}
-
-/* Customización de links de banner superior */
 #header .header-nav-main nav > ul > li > a {
     text-transform: none;
-    font-weight: 600;
     font-size: 16px;
 }
 
-/* Customización del burger menu background color */
-#header .header-btn-collapse-nav {
-    background: #005b7f;
+ul.nav-pills > li.active > a {
+    background-color: #74a30c;
 }
 
-/* Customización del borde superior del header para hacerlo verdecito */
-#header .header-body {
-    border-top: 25px solid rgb(168, 212, 29);
-    padding: 0px;
+ul.nav-pills > li.active > a:hover,
+ul.nav-pills > li.active > a:focus {
+    background-color: #74a30c;
 }
 
-/* Customización de bordes de imágenes de iniciativas */
-.iniciativas-container img {
-    margin: 20px;
+a, a:hover, a:focus {
+    color: #545759;
 }
 
-/* Customización de bordes en menú desplegable móvil */
-/* Header Nav Main Mobile */
-@media (max-width: 991px) {
-    #header .header-nav-main nav > ul li {
-        border-bottom: none;
-    }
-
-    /* Customización de bordes de imágenes de iniciativas */
-    .iniciativas-container img {
-        margin: 10px 0px;
-    }
+#comofunciona {
+    background-color: #2d094c;
 }
 
-/* Customización de botón de envío de correo */
-.transparent-input {
-    background-color: transparent;
-    color: #FFF;
-    border: 2px solid #FFF;
-    border-radius: 2%;
+.font-white,
+.font-white h1,
+.font-white h2,
+.font-white h3,
+.font-white h4,
+.font-white p {
+    color: #fff;
+    text-transform: none;
 }
 
-.transparent-input:focus {
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
-    border-color: #FFF;
+.font-white p {
+    font-weight: 300;
 }
 
-button.transparent-input:hover {
-    color: rgb(168, 212, 29);
-    background-color: #FFF;
-    border-color: #FFF;
+.font-white a,
+.font-white a:hover,
+.font-white a:focus {
+    color: #fff;
 }
 
-/* Customización de font en placeholder de campo para correo */
-#email-field::-webkit-input-placeholder {
-   font-style: italic;
-}
-#email-field:-moz-placeholder {
-   font-style: italic;
-}
-#email-field::-moz-placeholder {
-   font-style: italic;
-}
-#email-field:-ms-input-placeholder {
-   font-style: italic;
+#comofunciona img {
+    width: 25%;
 }
 
-/* Customización del footer */
+section.section {
+    position: relative;
+    padding: 70px 0px;
+    border: none !important;
+}
+
+#proyectos-ley .sort-source li {
+    float: none;
+    font-size: 18px;
+}
+
+#proyectos-ley .nav-pills>li+li {
+    margin-top: 10px;
+}
+
+#proyectos-menu {
+    float: left;
+}
+
+#proyectos-menu a,
+#proyectos-menu a:hover,
+#proyectos-menu a:focus {
+    color: #202d3e;
+    font-weight: 800;
+}
+
+#proyectos-menu .active a,
+#proyectos-menu .active a:hover,
+#proyectos-menu .active a:focus {
+    color: #ffffff;
+}
+
+#proyectos-ley h2 {
+    color: #202d3e;
+}
+
+.thumb-info .thumb-info-title {
+    color: #202d3e;
+    background: none;
+    text-transform: none;
+    font-weight: 700;
+    padding-bottom: 5px;
+    width: 100%;
+    max-width: 100%;
+    text-align: center;
+    bottom: 0%;
+    font-size: 14px;
+    z-index: 0;
+}
+
+.thumb-info:hover .thumb-info-title {
+    background: none;
+}
+
+.thumb-info.thumb-info-lighten .thumb-info-wrapper:after {
+    background: rgba(58, 153, 238, 0.87);
+}
+
+.thumb-info .thumb-info-action {
+    background: transparent;
+    left: 5%;
+    width: 90%;
+    -webkit-transition: -webkit-transform 0.2s ease-out, opacity 0.2s ease-out;
+    -moz-transition: -moz-transform 0.2s ease-out, opacity 0.2s ease-out;
+    transition: transform 0.2s ease-out, opacity 0.2s ease-out;
+    transform: translate(0%, -30%);
+    top: 50%;
+    bottom: auto;
+    opacity: 0;
+    text-align: center;
+    padding: 0;
+    position: absolute;
+    z-index: 2;
+    color: #ffffff;
+}
+
+.thumb-info:hover .thumb-info-action {
+    opacity: 1;
+    transform: translate(0%, -50%);
+}
+
+#contacto {
+    background-color: rgba(32, 45, 62, 1.0);
+    font-size: 12px;
+}
+
+#contacto .font-weight-bold {
+    font-weight: 600 !important;
+}
+
+.contact {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.contact i,
+.contact img {
+    margin-right: 10px;
+}
+
+.contact p {
+    margin-bottom: 10px;
+}
+
 #footer {
-    margin-top: 0px;
-    padding-top: 0px;
+    background: rgb(230, 231, 232);
 }
 
-#footer .footer-copyright {
-    padding: 10px 0px;
-    margin-top: 0px;
+#footer,
+#footer a,
+#footer a:hover,
+#footer a:focus {
+    color: rgb(64, 64, 65);
+    font-weight: 700;
+}
+
+.vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}
+
+/* For small devices only */
+@media (max-width: 479px) {
+    .thumb-info {
+        max-width: 55%;
+        margin: 0 auto;
+    }
+
+    section.section {
+        padding: 30px 0px;
+    }
+
+    #footer {
+        text-align: center;
+    }
 }
