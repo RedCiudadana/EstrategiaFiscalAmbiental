@@ -191,16 +191,6 @@ section.section {
     }
 }
 
-#sectionimage {
-    height: 63rem;
-    width: auto;
-    background:url('../../app/img/economia-ambiental.png') no-repeat center left;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-}
-
 #comoFunciona {
     height: 80rem;
     width: 100%;
@@ -214,16 +204,16 @@ section.section {
     color: #545759;
 }
 
-#comoFunciona h2, h1 .col-xs-4 {
-    font-size: 3rem;
+#comoFunciona h2, h1, h4, .col-xs-4 {
+    padding-left: 5rem;
+    padding-right: 5rem;
     color: #202d3e;
     font-weight: bold;
-    padding-left: 20%;
-    padding-right: 20%;
 }
 
 #comoFunciona img {
     width: 60%;
+    max-width: 20rem;
 }
 
 #comoFunciona hr {
@@ -238,4 +228,5 @@ section.section {
 
 h3 {
     color: #74a30c;
+    text-transform: none;
 }
