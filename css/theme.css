@@ -314,6 +314,27 @@ li {
 	margin-bottom: 0;
 }
 
+.header-nav-main .dropdown ul li a {
+	color: #74a30c !important;
+	font-weight: bolder;
+}
+
+.header-nav-main .dropdown {
+	border-bottom: #74a30c 3px solid;
+	padding-right: 20px;
+	margin-right: 50px;
+}
+
+.header-nav-main .dropdown span {
+	color: #202d3e;
+	font-weight: bold;
+	font-size: 1.5rem;
+}
+
+.header-nav-main img {
+	margin: auto 10px;
+}
+
 #header.header-no-border-bottom .header-body {
 	padding-bottom: 0 !important;
 	border-bottom: 0 !important;
@@ -4941,4 +4962,47 @@ html.boxed .main {
 	html.boxed {
 		background: none !important;
 	}
+}
+
+.header-nav-ejes {
+	background: #74a30c;
+}
+
+.header-nav-ejes .eje {
+	border: 1px solid white;
+	float: left;
+	min-height: 1px;
+	text-align: center;
+	padding: 2px;
+	position: relative;
+	width: 20%;
+}
+
+.header-nav-ejes .eje a {
+	font-family: Arial;
+	color: white;
+	font-weight: bolder;
+}
+
+.footer {
+	padding: 30px;
+	background: #f4f4f4;
+	color: #202d3e !important;
+}
+
+.footer ul li {
+	font-weight: bolder;
+}
+
+.footer img {
+	width: 120px;
+	height: auto;
+	margin: 10px;
+}
+
+.footer h6 {
+	margin-top: 40px;
+	color: #202d3e !important;
+	font-weight: bolder;
+	border-left: 2px solid #202d3e;
 }
