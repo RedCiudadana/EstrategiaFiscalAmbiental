@@ -6,22 +6,22 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-        <title>Estrategia de Economía Ambiental / MINFIN - Red Ciudadana</title>
+        <title>Estrategia de Fiscal Ambiental / MINFIN - Red Ciudadana</title>
 
-        <meta name="keywords" content="Estrategia de Economía Ambiental, MINFIN, Red Ciudadana, Estrategia Ambiental, Guatemala" />
-        <meta name="description" content="Estrategia de Economía Ambiental -MINFIN y Red Ciudadana">
+        <meta name="keywords" content="Estrategia de Fiscal Ambiental, MINFIN, Red Ciudadana, Estrategia Ambiental, Guatemala" />
+        <meta name="description" content="Estrategia de Fiscal Ambiental -MINFIN y Red Ciudadana">
         <meta name="author" content="Asociación Civil Red Ciudadana">
 
         <!-- Facebook stuff -->
-        <meta property="og:title" content="Estrategia de Economía Ambiental" />
-        <meta property="og:description" content="Estrategia de Economía Ambiental en Guatemala.">
+        <meta property="og:title" content="Estrategia de Fiscal Ambiental" />
+        <meta property="og:description" content="Estrategia de Fiscal Ambiental en Guatemala.">
         <meta property="og:type" content="website">
         <meta property="og:url" content="ecoambienteminfin.org">
         <meta property="og:image" content="img/redciudadana.png">
         <meta property="fb:app_id" content="" />
 
         <!-- Twitter stuff -->
-        <meta name="twitter:title" content="Estrategia de Economía Ambiental" />
+        <meta name="twitter:title" content="Estrategia de Fiscal Ambiental" />
         <meta name="twitter:description" content="Opina, propone y decidí cómo quieres que sean los de proyectos de ley en Guatemala." />
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:site" content="@RedxGuate" />
@@ -88,7 +88,7 @@
                             <div class="header-column">
                                 <div class="header-logo">
                                     <a href="index.html">
-                                        <img alt="Estrategia de Economía Ambiental" height="40" src="img/logo.png">
+                                        <img alt="Estrategia de Fiscal Ambiental" height="60" src="img/logo.png">
                                     </a>
                                 </div>
                             </div>
@@ -170,19 +170,19 @@
                 <div class="header-nav-ejes">
                     <div class="row">
                         <div class="eje">
-                            <a href="#">EJE 1</a href="#">
+                            <a href="#">Calidad del gasto y compra publica</a href="#">
                         </div>
                         <div class="eje">
-                            <a href="#">EJE 2</a href="#">
+                            <a href="#">Asistencia Financiera Municipal</a href="#">
                         </div>
                         <div class="eje">
-                            <a href="#">EJE 3</a href="#">
+                            <a href="#">Modelos Fiscales <br>Ambientales</a href="#">
                         </div>
                         <div class="eje">
-                            <a href="#">EJE 4</a href="#">
+                            <a href="#">Gestión de riesgo y contingencias ambientales</a href="#">
                         </div>
                         <div class="eje">
-                            <a href="#">EJE 5</a href="#">
+                            <a href="#">Acceso a financiamiento verde y climático</a href="#">
                         </div>
                     </div>
                 </div>
@@ -271,7 +271,29 @@
                 </div>
             </footer> -->
         </div>
-
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Video</h4>
+                </div>
+              <div class="modal-body">
+                <div class="row">
+                    <div class="col-sm-8 col-sm-offset-2">
+                        <div class="embed-responsive embed-responsive-16by9 col-xs-12 text-center">
+                            <iframe width="1200" height="630" src="https://www.youtube.com/embed/qf0-mHOMUOc?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
         <!-- Vendor -->
         <script src="vendor/jquery/jquery.min.js"></script>
         <script src="vendor/jquery.appear/jquery.appear.min.js"></script>
@@ -312,6 +334,11 @@
 
 		  gtag('config', 'UA-114404763-1');
 		</script>
+        <script type="text/javascript">
+            $(window).on('load',function(){
+                $('#myModal').modal('show');
+            });
+        </script>
 
     </body>
 </html>
