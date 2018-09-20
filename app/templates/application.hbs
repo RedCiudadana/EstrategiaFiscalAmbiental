@@ -1,0 +1,66 @@
+{{!-- Navbar --}}
+<nav class="navbar sticky-top navbar-light bg-white navbar-expand-lg">
+  <a class="navbar-brand" href="/">
+    <img alt="Estrategia de Fiscal Ambiental" src="img/logo.png" height="100px">
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav ml-auto mr-5">
+      <li class="nav-item dropdown border border-top-0 border-left-0 border-right-0 border-primary border-bold mr-3">
+        <a class="nav-link dropdown-toggle font-weight-bold" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Nosotros
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="#">Mision</a>
+          <a class="dropdown-item" href="#">Vision</a>
+          <a class="dropdown-item" href="objetivo">Objetivo</a>
+        </div>
+      </li>
+      <li class="nav-item my-auto">
+        <a href="https://www.facebook.com/minfingt/" target="_blank"><i class="fa fa-facebook mx-2"></i></a>
+        <a href="https://twitter.com/MinFinGT" target="_blank"><i class="fa fa-twitter mx-2"></i></a>
+      </li>
+    </ul>
+  </div>
+</nav>
+{{!-- Ejes --}}
+<div class="header-nav-eje col-sm-12 col-mds container-fluid bg-primary">
+    <div class="row text-center">
+        <div class="eje col-sm-12 col-md p-1 p-sm-2 border border-white">
+            <a href="legislativo" class="text-white font-weight-bold">Calidad del gasto y compra publica</a>
+        </div>
+        <div class="eje col-sm-12 col-md p-1 p-sm-2 border border-white">
+            <a href="legislativo" class="text-white font-weight-bold">Asistencia Financiera Municipal</a>
+        </div>
+        <div class="eje col-sm-12 col-md p-1 p-sm-2 border border-white">
+            <a href="legislativo" class="text-white font-weight-bold">Modelos Fiscales <br>Ambientales</a>
+        </div>
+        <div class="eje col-sm-12 col-md p-1 p-sm-2 border border-white">
+            <a href="legislativo" class="text-white font-weight-bold">Gestión de riesgo y contingencias ambientales</a>
+        </div>
+        <div class="eje col-sm-12 col-md p-1 p-sm-2 border border-white">
+            <a href="legislativo" class="text-white font-weight-bold">Acceso a financiamiento verde y climático</a>
+        </div>
+    </div>
+</div>
+{{outlet}}
+<footer class="footer bg-light">
+    <div class="container p-4">
+        <div class="row">
+            <div class="col-xs-12 col-md-6 pt-4 text-center text-md-left">
+                <strong>Desarrollado por:</strong>
+                <ul>
+                    <li>Ministerio de Finanzas Públicas</li>
+                    <li>Asociación Civil Red Ciudadana</li>
+                </ul>
+            </div>
+            <div class="col-xs-12 col-md-6">
+                <img src="/img/logo-minfin.png" alt="Ministerio de Finanzas Públicas" height="100px">
+                <img src="/img/redciudadana.png" alt="Red Ciudadana" height="100px">
+            </div>
+        </div>
+    </div>
+</footer>
+
