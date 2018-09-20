@@ -13,9 +13,9 @@
           Nosotros
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="nosotros">Mision</a>
-          <a class="dropdown-item" href="nosotros">Vision</a>
-          <a class="dropdown-item" href="objetivo">Objetivo</a>
+          {{link-to 'Mision' 'nosotros' class="dropdown-item"}}
+          {{link-to 'Vision' 'nosotros' class="dropdown-item"}}
+          {{link-to 'Objetivo' 'objetivo' class="dropdown-item"}}
         </div>
       </li>
       <li class="nav-item my-auto">
@@ -29,25 +29,39 @@
 <div class="header-nav-eje col-sm-12 col-mds container-fluid bg-primary">
     <div class="row text-center">
         <div class="eje col-sm-12 col-md p-1 p-sm-2 border border-white">
-            <a href="biblioteca" class="text-white font-weight-bold">Calidad del gasto y compra publica</a>
+            {{#link-to 'biblioteca'}}
+             <a class="text-white font-weight-bold">Calidad del gasto y compra publica</a>
+             {{/link-to}}
         </div>
         <div class="eje col-sm-12 col-md p-1 p-sm-2 border border-white">
-            <a href="biblioteca" class="text-white font-weight-bold">Asistencia Financiera Municipal</a>
+            {{#link-to 'biblioteca'}}
+             <a class="text-white font-weight-bold">Asistencia Financiera Municipal</a>
+             {{/link-to}}
         </div>
         <div class="eje col-sm-12 col-md p-1 p-sm-2 border border-white">
-            <a href="biblioteca" class="text-white font-weight-bold">Modelos Fiscales <br>Ambientales</a>
+            {{#link-to 'biblioteca'}}
+             <a class="text-white font-weight-bold">Modelos Fiscales <br>Ambientales</a>
+             {{/link-to}}
         </div>
         <div class="eje col-sm-12 col-md p-1 p-sm-2 border border-white">
-            <a href="biblioteca" class="text-white font-weight-bold">Gestión de riesgo y contingencias ambientales</a>
+            {{#link-to 'biblioteca'}}
+             <a class="text-white font-weight-bold">Gestión de riesgo y contingencias ambientales</a>
+             {{/link-to}}
         </div>
         <div class="eje col-sm-12 col-md p-1 p-sm-2 border border-white">
-            <a href="biblioteca" class="text-white font-weight-bold">Acceso a financiamiento verde y climático</a>
+            {{#link-to 'biblioteca'}}
+             <a class="text-white font-weight-bold">Acceso a financiamiento verde y climático</a>
+             {{/link-to}}
         </div>
         <div class="eje col-sm-12 col-md p-1 p-sm-2 border border-white">
-            <a href="legislativo" class="text-white font-weight-bold">Documentos legales</a>
+            {{#link-to 'legislativo'}}
+             <a class="text-white font-weight-bold">Documentos legales</a>
+             {{/link-to}}
         </div>
         <div class="eje col-sm-12 col-md p-1 p-sm-2 border border-white">
-            <a href="biblioteca" class="text-white font-weight-bold">Biblioteca ambiental</a>
+            {{#link-to 'biblioteca'}}
+             <a class="text-white font-weight-bold">Biblioteca ambiental</a>
+             {{/link-to}}
         </div>
     </div>
 </div>
