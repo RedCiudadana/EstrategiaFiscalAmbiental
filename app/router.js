@@ -8,9 +8,15 @@ const Router = EmberRouter.extend({
 
 Router.map(function() {
   this.route('legislativo');
-  this.route('biblioteca');
   this.route('objetivo');
   this.route('nosotros');
+  this.route('biblioteca', function() {
+    this.route('eje1');
+    this.route('eje2');
+    this.route('eje3');
+    this.route('eje4');
+    this.route('estrategia-ambiental');
+  });
 });
 
 export default Router;
