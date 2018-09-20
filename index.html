@@ -1,296 +1,74 @@
 <!DOCTYPE html>
 <html>
-    <head>
+  <head>
+    <!-- Basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Estrategia Fiscal Ambiental</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Estrategia Fiscal Ambiental, MINFIN, Red Ciudadana, Estrategia Ambiental, Guatemala" />
+    <meta name="description" content="Estrategia Fiscal Ambiental -MINFIN y Red Ciudadana">
+    <meta name="author" content="Asociación Civil Red Ciudadana">
 
-        <!-- Basic -->
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Facebook stuff -->
+    <meta property="og:title" content="Estrategia Fiscal Ambiental" />
+    <meta property="og:description" content="Estrategia Fiscal Ambiental en Guatemala.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="ecoambienteminfin.org">
+    <meta property="og:image" content="img/redciudadana.png">
+    <meta property="fb:app_id" content="" />
 
-        <title>Estrategia de Fiscal Ambiental / MINFIN - Red Ciudadana</title>
+    <!-- Twitter stuff -->
+    <meta name="twitter:title" content="Estrategia Fiscal Ambiental" />
+    <meta name="twitter:description" content="Opina, propone y decidí cómo quieres que sean los de proyectos de ley en Guatemala." />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@RedxGuate" />
+    <meta name="twitter:image" content="img/redciudadana.png"/>
 
-        <meta name="keywords" content="Estrategia de Fiscal Ambiental, MINFIN, Red Ciudadana, Estrategia Ambiental, Guatemala" />
-        <meta name="description" content="Estrategia de Fiscal Ambiental -MINFIN y Red Ciudadana">
-        <meta name="author" content="Asociación Civil Red Ciudadana">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="app/img/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="app/img/favicon.ico">
 
-        <!-- Facebook stuff -->
-        <meta property="og:title" content="Estrategia de Fiscal Ambiental" />
-        <meta property="og:description" content="Estrategia de Fiscal Ambiental en Guatemala.">
-        <meta property="og:type" content="website">
-        <meta property="og:url" content="ecoambienteminfin.org">
-        <meta property="og:image" content="img/redciudadana.png">
-        <meta property="fb:app_id" content="" />
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-        <!-- Twitter stuff -->
-        <meta name="twitter:title" content="Estrategia de Fiscal Ambiental" />
-        <meta name="twitter:description" content="Opina, propone y decidí cómo quieres que sean los de proyectos de ley en Guatemala." />
-        <meta name="twitter:card" content="summary" />
-        <meta name="twitter:site" content="@RedxGuate" />
-        <meta name="twitter:image" content="img/redciudadana.png"/>
+    
+<meta name="estrategia-fiscal-ambiental/config/environment" content="%7B%22modulePrefix%22%3A%22estrategia-fiscal-ambiental%22%2C%22environment%22%3A%22development%22%2C%22rootURL%22%3A%22/%22%2C%22locationType%22%3A%22hash%22%2C%22EmberENV%22%3A%7B%22FEATURES%22%3A%7B%7D%2C%22EXTEND_PROTOTYPES%22%3A%7B%22Date%22%3Afalse%7D%7D%2C%22APP%22%3A%7B%22name%22%3A%22estrategia-fiscal-ambiental%22%2C%22version%22%3A%220.0.0+3d1e3151%22%7D%2C%22exportApplicationGlobal%22%3Atrue%7D" />
+<script src="/ember-cli-live-reload.js" type="text/javascript"></script>
 
-        <!-- Favicon -->
-        <link rel="shortcut icon" href="app/img/favicon.ico" type="image/x-icon" />
-        <link rel="apple-touch-icon" href="app/img/favicon.ico">
+    <!-- CSS Bootstrap 4 -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
-        <!-- Mobile Metas -->
-        <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!-- Web Fonts  -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800%7CShadows+Into+Light" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600,700" rel="stylesheet">
 
-        <!-- Web Fonts  -->
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800%7CShadows+Into+Light" rel="stylesheet" type="text/css">
-        <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600,700" rel="stylesheet">
-
-        <!-- Vendor CSS -->
-        <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
-        <link rel="stylesheet" href="vendor/font-awesome/css/font-awesome.min.css">
-        <link rel="stylesheet" href="vendor/animate/animate.min.css">
-        <link rel="stylesheet" href="vendor/simple-line-icons/css/simple-line-icons.min.css">
-        <link rel="stylesheet" href="vendor/owl.carousel/assets/owl.carousel.min.css">
-        <link rel="stylesheet" href="vendor/owl.carousel/assets/owl.theme.default.min.css">
-        <link rel="stylesheet" href="vendor/magnific-popup/magnific-popup.min.css">
-
-        <!-- Theme CSS -->
-        <link rel="stylesheet" href="css/theme.css">
-        <link rel="stylesheet" href="css/theme-elements.css">
-        <link rel="stylesheet" href="css/theme-blog.css">
-        <link rel="stylesheet" href="css/theme-shop.css">
-
-        <!-- Current Page CSS -->
-        <link rel="stylesheet" href="vendor/rs-plugin/css/settings.css">
-        <link rel="stylesheet" href="vendor/rs-plugin/css/layers.css">
-        <link rel="stylesheet" href="vendor/rs-plugin/css/navigation.css">
-
-        <!-- Skin CSS -->
-
-        <!-- Theme Custom CSS -->
-        <link rel="stylesheet" href="css/custom.css">
-        <link rel="stylesheet" href="app/css/custom.css">
-
-        <!-- Head Libs -->
-        <script src="vendor/modernizr/modernizr.min.js"></script>
-    </head>
-
-    <body>
-
-        <div class="body">
-            <header
-                id="header"
-                class="header-narrow"
-                data-plugin-options="{
-                    'stickyEnabled': true,
-                    'stickyEnableOnBoxed': true,
-                    'stickyEnableOnMobile': true,
-                    'stickyStartAt': 1,
-                    'stickySetTop': '1'
-                }">
-                <div class="header-body">
-                    <div class="header-container container">
-                        <div class="header-row">
-                            <div class="header-column">
-                                <div class="header-logo">
-                                    <a href="index.html">
-                                        <img alt="Estrategia de Fiscal Ambiental" height="60" src="img/logo.png">
-                                    </a>
-                                </div>
-                            </div>
-
-                            <div class="header-column">
-                                <div class="header-row">
-                                    <div class="header-nav">
-                                        <button class="btn header-btn-collapse-nav" data-toggle="collapse" data-target=".header-nav-main">
-                                            <i class="fa fa-bars"></i>
-                                        </button>
-
-                                        
-
-                                        <div class="header-nav-main custom-header-nav-main-effect-1 collapse">
-                                            <nav>
-                                                <ul class="nav nav-pills" id="mainNav">
-                                                    <li class="active">
-                                                        <div class="dropdown">
-                                                          <span class="dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                                            Nosotros
-                                                          </span>
-                                                          <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                                                            <li>
-                                                                <a href="legislativo.html">Mision</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="legislativo.html">Vision</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="objetivo.html">Objetivo</a>
-                                                            </li>
-                                                          </ul>
-                                                        </div>
-                                                    </li>
-                                                    <li>
-                                                        <p>
-                                                            <a href="https://www.facebook.com/Redciudadanagt">
-                                                                <img alt="Facebook" src="app/img/fb-logo.png" width="23">
-                                                            </a>
-                                                        </p>
-                                                    </li>
-                                                    <li>
-                                                        <p>
-                                                            <a href="https://twitter.com/RedxGuate">
-                                                                <img alt="Twitter" src="app/img/tw-logo.png" width="23">
-                                                            </a>
-                                                        </p>
-                                                    </li>
-                                                </ul>
-                                            </nav>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="header-nav-ejes">
-                    <div class="row">
-                        <div class="eje">
-                            <a href="legislativo.html#panel1">Calidad del gasto y compra publica</a>
-                        </div>
-                        <div class="eje">
-                            <a href="legislativo.html#panel2">Asistencia Financiera Municipal</a>
-                        </div>
-                        <div class="eje">
-                            <a href="legislativo.html#panel3">Modelos Fiscales <br>Ambientales</a>
-                        </div>
-                        <div class="eje">
-                            <a href="legislativo.html#panel4">Gestión de riesgo y contingencias ambientales</a>
-                        </div>
-                        <div class="eje">
-                            <a href="legislativo.html#panel5">Acceso a financiamiento verde y climático</a>
-                        </div>
-                    </div>
-                </div>
-            </header>
-            <div role="main" class="main">
-                <!-- Banner principal -->
-                <section id="2sectionimage">
-                    <img src="/app/img/banner.png" width="100%" height="auto">
-                </section>
-
-                <!-- Sección ¿Cómo funciona? -->
-                <section id="comoFunciona" class="section m-none">
-                    <div class="container">
-                        <div class="row text-center justify-content-center">
-                            <div class="col-xs-12 col-md-4 col-md-offset-2">
-                                <a href="biblioteca.html">
-                                    <h4>Bibloteca<br>Ambiental</h4>
-                                    <img src="../img/portal3.png" alt="">
-                                </a>
-                                
-                            </div>
-                            <div class="col-xs-12 col-md-4">
-                                <a href="legislativo.html">
-                                    <h4>Propuestas<br>Legislativas</h4>
-                                    <img src="/img/portal1.png" alt="">
-                                </a>
-                            </div>
-                        </div>
-                        <hr>
-                    </div>
-                </section>
-
-                <!-- Sección de contacto -->
-                <section class="footer">
-                    <div class="container">
-                        <div class="row">
-
-                            <div class="col-xs-12 col-md-4">
-                                <strong>Desarrollado por:</strong>
-                                <ul>
-                                    <li>Ministerio de Finanzas Públicas</li>
-                                    <li>Asociación Civil Red Ciudadana</li>
-                                </ul>
-                            </div>
-
-                            <div class="col-xs-12 col-md-4">
-                                <img src="../img/logo.png" alt="Ministerio de Finanzas Públicas">
-                                <img src="../img/redciudadana.png" alt="Red Ciudadana">
-                            </div>
-
-                            <div class="col-xs-12 col-md-offset-2 col-md-2 text-right">
-                                <h6>Gobierno Abierto</h6>
-                            </div>
+    <link integrity="" rel="stylesheet" href="/assets/vendor.css">
+    <link integrity="" rel="stylesheet" href="/assets/estrategia-fiscal-ambiental.css">
 
 
-                        </div>
-                    </div>
-                </section>
-            </div>
-        </div>
+    
 
-        <!-- Modal -->
-        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title">Video</h4>
-                </div>
-              <div class="modal-body">
-                <div class="row">
-                    <div class="col-sm-8 col-sm-offset-2">
-                        <div class="embed-responsive embed-responsive-16by9 col-xs-12 text-center">
-                            <iframe width="1200" height="630" src="https://www.youtube.com/embed/qf0-mHOMUOc?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                        </div>
-                    </div>
-                </div>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              </div>
-            </div>
-          </div>
-        </div>
+    <!-- Google Analytics -->
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-        <!-- Vendor -->
-        <script src="vendor/jquery/jquery.min.js"></script>
-        <script src="vendor/jquery.appear/jquery.appear.min.js"></script>
-        <script src="vendor/jquery.easing/jquery.easing.min.js"></script>
-        <script src="vendor/jquery-cookie/jquery-cookie.min.js"></script>
-        <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-        <script src="vendor/common/common.min.js"></script>
-        <script src="vendor/jquery.validation/jquery.validation.min.js"></script>
-        <script src="vendor/jquery.easy-pie-chart/jquery.easy-pie-chart.min.js"></script>
-        <script src="vendor/jquery.gmap/jquery.gmap.min.js"></script>
-        <script src="vendor/jquery.lazyload/jquery.lazyload.min.js"></script>
-        <script src="vendor/isotope/jquery.isotope.min.js"></script>
-        <script src="vendor/owl.carousel/owl.carousel.min.js"></script>
-        <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
-        <script src="vendor/vide/vide.min.js"></script>
+      gtag('config', 'UA-114404763-1');
+    </script>
 
-        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.matchHeight/0.7.0/jquery.matchHeight-min.js"></script>
+  </head>
+  <body>
+    
 
-        <!-- Theme Base, Components and Settings -->
-        <script src="js/theme.js"></script>
+    <script src="/assets/vendor.js"></script>
+    <script src="/assets/estrategia-fiscal-ambiental.js"></script>
 
-        <!-- Current Page Vendor and Views -->
-        <script src="vendor/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
-        <script src="vendor/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+    
 
-        <!-- Theme Custom -->
-        <script src="app/js/custom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
-        <!-- Theme Initialization Files -->
-        <script src="js/theme.init.js"></script>
-
-		<!-- Global site tag (gtag.js) - Google Analytics -->
-		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-114404763-1"></script>
-		<script>
-		  window.dataLayer = window.dataLayer || [];
-		  function gtag(){dataLayer.push(arguments);}
-		  gtag('js', new Date());
-
-		  gtag('config', 'UA-114404763-1');
-		</script>
-        <script type="text/javascript">
-            $(window).on('load',function(){
-                $('legislativo.htmlmyModal').modal('show');
-            });
-        </script>
-
-    </body>
+  </body>
 </html>
