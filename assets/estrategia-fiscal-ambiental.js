@@ -392,7 +392,7 @@
   Object.defineProperty(exports, "__esModule", {
     value: true
   });
-  exports.default = Ember.HTMLBars.template({ "id": "Cl1LAj7A", "block": "{\"symbols\":[],\"statements\":[[7,\"div\"],[11,\"class\",\"border p-4 rounded mt-2 m-md-0\"],[9],[0,\"\\n    \"],[7,\"h2\"],[9],[0,\"Estrategia Fiscal Ambiental\"],[10],[0,\"\\n    \"],[7,\"p\"],[9],[10],[0,\"\\n    \"],[7,\"div\"],[11,\"class\",\"tab-pane fade show\"],[11,\"id\",\"list-six\"],[11,\"role\",\"tabpanel\"],[11,\"aria-labelledby\",\"list-six-list\"],[9],[0,\"\\n      \"],[7,\"ul\"],[11,\"class\",\"list-unstyled\"],[9],[0,\"\\n          \"],[7,\"li\"],[9],[7,\"i\"],[11,\"class\",\"fa fa-download\"],[9],[10],[7,\"a\"],[11,\"href\",\"https://github.com/RedCiudadana/Recursos-Ambiente/raw/master/EFA%202%20190918.docx\"],[9],[0,\"\\n             EFA 2 2019918\\n          \"],[10],[10],[0,\"\\n      \"],[10],[0,\"\\n    \"],[10],[0,\"\\n\"],[10],[0,\"\\n\"],[7,\"script\"],[9],[0,\"\\n  $('#list-tab a').removeClass('active');\\n  $('#list-six-list').addClass('active');\\n\"],[10],[0,\"\\n\"]],\"hasEval\":false}", "meta": { "moduleName": "estrategia-fiscal-ambiental/templates/biblioteca/estrategia-ambiental.hbs" } });
+  exports.default = Ember.HTMLBars.template({ "id": "tVevHGfC", "block": "{\"symbols\":[],\"statements\":[[7,\"div\"],[11,\"class\",\"border p-4 rounded mt-2 m-md-0\"],[9],[0,\"\\n    \"],[7,\"h2\"],[9],[0,\"Estrategia Fiscal Ambiental\"],[10],[0,\"\\n    \"],[7,\"p\"],[9],[10],[0,\"\\n    \"],[7,\"div\"],[11,\"class\",\"tab-pane fade show\"],[11,\"id\",\"list-six\"],[11,\"role\",\"tabpanel\"],[11,\"aria-labelledby\",\"list-six-list\"],[9],[0,\"\\n      \"],[7,\"ul\"],[11,\"class\",\"list-unstyled\"],[9],[0,\"\\n          \"],[7,\"li\"],[9],[7,\"i\"],[11,\"class\",\"fa fa-download\"],[9],[10],[7,\"a\"],[11,\"href\",\"https://github.com/RedCiudadana/Recursos-Ambiente/raw/master/EFA%20vr.%20final.pdf\"],[9],[0,\"\\n             EFA (PDF)\\n          \"],[10],[10],[0,\"\\n          \"],[7,\"li\"],[9],[7,\"i\"],[11,\"class\",\"fa fa-download\"],[9],[10],[7,\"a\"],[11,\"href\",\"https://github.com/RedCiudadana/Recursos-Ambiente/raw/master/EFA%20vr.%20final.docx\"],[9],[0,\"\\n             EFA (DOCX)\\n          \"],[10],[10],[0,\"\\n      \"],[10],[0,\"\\n    \"],[10],[0,\"\\n\"],[10],[0,\"\\n\"],[7,\"script\"],[9],[0,\"\\n  $('#list-tab a').removeClass('active');\\n  $('#list-six-list').addClass('active');\\n\"],[10],[0,\"\\n\"]],\"hasEval\":false}", "meta": { "moduleName": "estrategia-fiscal-ambiental/templates/biblioteca/estrategia-ambiental.hbs" } });
 });
 ;define("estrategia-fiscal-ambiental/templates/biblioteca/index", ["exports"], function (exports) {
   "use strict";
@@ -457,7 +457,7 @@ catch(err) {
 
 ;
           if (!runningTests) {
-            require("estrategia-fiscal-ambiental/app")["default"].create({"name":"estrategia-fiscal-ambiental","version":"0.0.0+96d88e72"});
+            require("estrategia-fiscal-ambiental/app")["default"].create({"name":"estrategia-fiscal-ambiental","version":"0.0.0+260d2f37"});
           }
         
 //# sourceMappingURL=estrategia-fiscal-ambiental.map
