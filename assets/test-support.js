@@ -9192,16 +9192,17 @@ define('@ember/test-helpers/dom/click', ['exports', '@ember/test-helpers/dom/-ge
   /**
     @private
     @param {Element} element the element to click on
+    @param {Object} options the options to be merged into the mouse events
   */
-  function __click__(element) {
-    (0, _fireEvent.default)(element, 'mousedown');
+  function __click__(element, options) {
+    (0, _fireEvent.default)(element, 'mousedown', options);
 
     if ((0, _isFocusable.default)(element)) {
       (0, _focus.__focus__)(element);
     }
 
-    (0, _fireEvent.default)(element, 'mouseup');
-    (0, _fireEvent.default)(element, 'click');
+    (0, _fireEvent.default)(element, 'mouseup', options);
+    (0, _fireEvent.default)(element, 'click', options);
   }
 
   /**
@@ -9228,11 +9229,14 @@ define('@ember/test-helpers/dom/click', ['exports', '@ember/test-helpers/dom/-ge
     The exact listing of events that are triggered may change over time as needed
     to continue to emulate how actual browsers handle clicking a given element.
   
+    Use the `options` hash to change the parameters of the MouseEvents. 
+  
     @public
     @param {string|Element} target the element or selector to click on
+    @param {Object} options the options to be merged into the mouse events
     @return {Promise<void>} resolves when settled
   */
-  function click(target) {
+  function click(target, options = {}) {
     return (0, _utils.nextTickPromise)().then(() => {
       if (!target) {
         throw new Error('Must pass an element or selector to `click`.');
@@ -9246,9 +9250,94 @@ define('@ember/test-helpers/dom/click', ['exports', '@ember/test-helpers/dom/-ge
       let isDisabledFormControl = (0, _isFormControl.default)(element) && element.disabled === true;
 
       if (!isDisabledFormControl) {
-        __click__(element);
+        __click__(element, options);
       }
 
+      return (0, _settled.default)();
+    });
+  }
+});
+define('@ember/test-helpers/dom/double-click', ['exports', '@ember/test-helpers/dom/-get-element', '@ember/test-helpers/dom/fire-event', '@ember/test-helpers/dom/focus', '@ember/test-helpers/settled', '@ember/test-helpers/dom/-is-focusable', '@ember/test-helpers/-utils'], function (exports, _getElement, _fireEvent, _focus, _settled, _isFocusable, _utils) {
+  'use strict';
+
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.__doubleClick__ = __doubleClick__;
+  exports.default = doubleClick;
+
+
+  /**
+    @private
+    @param {Element} element the element to double-click on
+    @param {Object} options the options to be merged into the mouse events
+  */
+  function __doubleClick__(element, options) {
+    (0, _fireEvent.default)(element, 'mousedown', options);
+
+    if ((0, _isFocusable.default)(element)) {
+      (0, _focus.__focus__)(element);
+    }
+
+    (0, _fireEvent.default)(element, 'mouseup', options);
+    (0, _fireEvent.default)(element, 'click', options);
+    (0, _fireEvent.default)(element, 'mousedown', options);
+    (0, _fireEvent.default)(element, 'mouseup', options);
+    (0, _fireEvent.default)(element, 'click', options);
+    (0, _fireEvent.default)(element, 'dblclick', options);
+  }
+
+  /**
+    Double-clicks on the specified target.
+  
+    Sends a number of events intending to simulate a "real" user clicking on an
+    element.
+  
+    For non-focusable elements the following events are triggered (in order):
+  
+    - `mousedown`
+    - `mouseup`
+    - `click`
+    - `mousedown`
+    - `mouseup`
+    - `click`
+    - `dblclick`
+  
+    For focusable (e.g. form control) elements the following events are triggered
+    (in order):
+  
+    - `mousedown`
+    - `focus`
+    - `focusin`
+    - `mouseup`
+    - `click`
+    - `mousedown`
+    - `mouseup`
+    - `click`
+    - `dblclick`
+  
+    The exact listing of events that are triggered may change over time as needed
+    to continue to emulate how actual browsers handle clicking a given element.
+  
+    Use the `options` hash to change the parameters of the MouseEvents. 
+  
+    @public
+    @param {string|Element} target the element or selector to double-click on
+    @param {Object} options the options to be merged into the mouse events
+    @return {Promise<void>} resolves when settled
+  */
+  function doubleClick(target, options = {}) {
+    return (0, _utils.nextTickPromise)().then(() => {
+      if (!target) {
+        throw new Error('Must pass an element or selector to `doubleClick`.');
+      }
+
+      let element = (0, _getElement.default)(target);
+      if (!element) {
+        throw new Error(`Element not found when calling \`doubleClick('${target}')\`.`);
+      }
+
+      __doubleClick__(element, options);
       return (0, _settled.default)();
     });
   }
@@ -9373,6 +9462,15 @@ define('@ember/test-helpers/dom/fire-event', ['exports'], function (exports) {
   exports.default = fireEvent;
 
 
+  // eslint-disable-next-line require-jsdoc
+  const MOUSE_EVENT_CONSTRUCTOR = (() => {
+    try {
+      new MouseEvent('test');
+      return true;
+    } catch (e) {
+      return false;
+    }
+  })();
   const DEFAULT_EVENT_OPTIONS = { bubbles: true, cancelable: true };
   const KEYBOARD_EVENT_TYPES = exports.KEYBOARD_EVENT_TYPES = Object.freeze(['keydown', 'keypress', 'keyup']);
   const MOUSE_EVENT_TYPES = ['click', 'mousedown', 'mouseup', 'dblclick', 'mouseenter', 'mouseleave', 'mousemove', 'mouseout', 'mouseover'];
@@ -9416,7 +9514,7 @@ define('@ember/test-helpers/dom/fire-event', ['exports'], function (exports) {
         clientY: y
       };
 
-      event = buildMouseEvent(eventType, Ember.merge(simulatedCoordinates, options));
+      event = buildMouseEvent(eventType, Ember.assign(simulatedCoordinates, options));
     } else if (FILE_SELECTION_EVENT_TYPES.indexOf(eventType) > -1 && element.files) {
       event = buildFileEvent(eventType, element, options);
     } else {
@@ -9440,26 +9538,31 @@ define('@ember/test-helpers/dom/fire-event', ['exports'], function (exports) {
     // bubbles and cancelable are readonly, so they can be
     // set when initializing event
     event.initEvent(type, bubbles, cancelable);
-    Ember.merge(event, options);
+    Ember.assign(event, options);
     return event;
   }
 
   // eslint-disable-next-line require-jsdoc
   function buildMouseEvent(type, options = {}) {
     let event;
-    try {
-      event = document.createEvent('MouseEvents');
-      let eventOpts = Ember.merge(Ember.merge({}, DEFAULT_EVENT_OPTIONS), options);
-      event.initMouseEvent(type, eventOpts.bubbles, eventOpts.cancelable, window, eventOpts.detail, eventOpts.screenX, eventOpts.screenY, eventOpts.clientX, eventOpts.clientY, eventOpts.ctrlKey, eventOpts.altKey, eventOpts.shiftKey, eventOpts.metaKey, eventOpts.button, eventOpts.relatedTarget);
-    } catch (e) {
-      event = buildBasicEvent(type, options);
+    let eventOpts = Ember.assign({ view: window }, DEFAULT_EVENT_OPTIONS, options);
+    if (MOUSE_EVENT_CONSTRUCTOR) {
+      event = new MouseEvent(type, eventOpts);
+    } else {
+      try {
+        event = document.createEvent('MouseEvents');
+        event.initMouseEvent(type, eventOpts.bubbles, eventOpts.cancelable, window, eventOpts.detail, eventOpts.screenX, eventOpts.screenY, eventOpts.clientX, eventOpts.clientY, eventOpts.ctrlKey, eventOpts.altKey, eventOpts.shiftKey, eventOpts.metaKey, eventOpts.button, eventOpts.relatedTarget);
+      } catch (e) {
+        event = buildBasicEvent(type, options);
+      }
     }
+
     return event;
   }
 
   // eslint-disable-next-line require-jsdoc
   function buildKeyboardEvent(type, options = {}) {
-    let eventOpts = Ember.merge(Ember.merge({}, DEFAULT_EVENT_OPTIONS), options);
+    let eventOpts = Ember.assign({}, DEFAULT_EVENT_OPTIONS, options);
     let event, eventMethodName;
 
     try {
@@ -9633,18 +9736,22 @@ define('@ember/test-helpers/dom/get-root-element', ['exports', '@ember/test-help
       throw new Error('Must setup rendering context before attempting to interact with elements.');
     }
 
-    let rootElementSelector;
+    let rootElement;
     // When the host app uses `setApplication` (instead of `setResolver`) the owner has
-    // a `rootElement` set on it with the element id to be used
+    // a `rootElement` set on it with the element or id to be used
     if (owner && owner._emberTestHelpersMockOwner === undefined) {
-      rootElementSelector = owner.rootElement;
+      rootElement = owner.rootElement;
     } else {
-      rootElementSelector = '#ember-testing';
+      rootElement = '#ember-testing';
     }
 
-    let rootElement = document.querySelector(rootElementSelector);
-
-    return rootElement;
+    if (rootElement.nodeType === Node.ELEMENT_NODE || rootElement.nodeType === Node.DOCUMENT_NODE || rootElement instanceof Window) {
+      return rootElement;
+    } else if (typeof rootElement === 'string') {
+      return document.querySelector(rootElement);
+    } else {
+      throw new Error('Application.rootElement must be an element or a selector string');
+    }
   }
 });
 define('@ember/test-helpers/dom/tap', ['exports', '@ember/test-helpers/dom/-get-element', '@ember/test-helpers/dom/fire-event', '@ember/test-helpers/dom/click', '@ember/test-helpers/settled', '@ember/test-helpers/-utils'], function (exports, _getElement, _fireEvent, _click, _settled, _utils) {
@@ -9684,9 +9791,11 @@ define('@ember/test-helpers/dom/tap', ['exports', '@ember/test-helpers/dom/-get-
     The exact listing of events that are triggered may change over time as needed
     to continue to emulate how actual browsers handle tapping on a given element.
   
+    Use the `options` hash to change the parameters of the tap events. 
+  
     @public
     @param {string|Element} target the element or selector to tap on
-    @param {Object} options the options to be provided to the touch events
+    @param {Object} options the options to be merged into the touch events
     @return {Promise<void>} resolves when settled
   */
   function tap(target, options = {}) {
@@ -9704,7 +9813,7 @@ define('@ember/test-helpers/dom/tap', ['exports', '@ember/test-helpers/dom/-get-
       let touchendEv = (0, _fireEvent.default)(element, 'touchend', options);
 
       if (!touchstartEv.defaultPrevented && !touchendEv.defaultPrevented) {
-        (0, _click.__click__)(element);
+        (0, _click.__click__)(element, options);
       }
 
       return (0, _settled.default)();
@@ -9721,14 +9830,25 @@ define('@ember/test-helpers/dom/trigger-event', ['exports', '@ember/test-helpers
 
 
   /**
-    Triggers an event on the specified target.
-  
-    @public
-    @param {string|Element} target the element or selector to trigger the event on
-    @param {string} eventType the type of event to trigger
-    @param {Object} options additional properties to be set on the event
-    @return {Promise<void>} resolves when the application is settled
-  */
+   * Triggers an event on the specified target.
+   *
+   * @public
+   * @param {string|Element} target the element or selector to trigger the event on
+   * @param {string} eventType the type of event to trigger
+   * @param {Object} options additional properties to be set on the event
+   * @return {Promise<void>} resolves when the application is settled
+   *
+   * @example
+   * <caption>Using triggerEvent to Upload a file
+   * When using triggerEvent to upload a file the `eventType` must be `change` and  you must pass an
+   * array of [Blob](https://developer.mozilla.org/en-US/docs/Web/API/Blob) as `options`.</caption>
+   *
+   * triggerEvent(
+   *   'input.fileUpload',
+   *   'change',
+   *   [new Blob(['Ember Rules!'])]
+   * );
+   */
   function triggerEvent(target, eventType, options) {
     return (0, _utils.nextTickPromise)().then(() => {
       if (!target) {
@@ -9781,6 +9901,16 @@ define('@ember/test-helpers/dom/trigger-key-event', ['exports', '@ember/test-hel
     38: 'ArrowUp',
     39: 'ArrowRight',
     40: 'ArrowDown',
+    48: '0',
+    49: '1',
+    50: '2',
+    51: '3',
+    52: '4',
+    53: '5',
+    54: '6',
+    55: '7',
+    56: '8',
+    57: '9',
     65: 'a',
     66: 'b',
     67: 'c',
@@ -9895,7 +10025,7 @@ define('@ember/test-helpers/dom/trigger-key-event', ['exports', '@ember/test-hel
           throw new Error(`Must provide a \`key\` to \`triggerKeyEvent\` that starts with an uppercase character but you passed \`${key}\`.`);
         }
 
-        if ((0, _utils.isNumeric)(key)) {
+        if ((0, _utils.isNumeric)(key) && key.length > 1) {
           throw new Error(`Must provide a numeric \`keyCode\` to \`triggerKeyEvent\` but you passed \`${key}\` as a string.`);
         }
 
@@ -9905,12 +10035,103 @@ define('@ember/test-helpers/dom/trigger-key-event', ['exports', '@ember/test-hel
         throw new Error(`Must provide a \`key\` or \`keyCode\` to \`triggerKeyEvent\``);
       }
 
-      let options = Ember.merge(props, modifiers);
+      let options = Ember.assign(props, modifiers);
 
       (0, _fireEvent.default)(element, eventType, options);
 
       return (0, _settled.default)();
     });
+  }
+});
+define('@ember/test-helpers/dom/type-in', ['exports', '@ember/test-helpers/-utils', '@ember/test-helpers/settled', '@ember/test-helpers/dom/-get-element', '@ember/test-helpers/dom/-is-form-control', '@ember/test-helpers/dom/focus', '@ember/test-helpers/dom/fire-event'], function (exports, _utils, _settled, _getElement, _isFormControl, _focus, _fireEvent) {
+  'use strict';
+
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.default = typeIn;
+
+
+  /**
+   * Mimics character by character entry into the target `input` or `textarea` element.
+   *
+   * Allows for simulation of slow entry by passing an optional millisecond delay
+   * between key events.
+  
+   * The major difference between `typeIn` and `fillIn` is that `typeIn` triggers
+   * keyboard events as well as `input` and `change`.
+   * Typically this looks like `focus` -> `focusin` -> `keydown` -> `keypress` -> `keyup` -> `input` -> `change`
+   * per character of the passed text (this may vary on some browsers).
+   *
+   * @public
+   * @param {string|Element} target the element or selector to enter text into
+   * @param {string} text the test to fill the element with
+   * @param {Object} options {delay: x} (default 50) number of milliseconds to wait per keypress
+   * @return {Promise<void>} resolves when the application is settled
+   */
+  function typeIn(target, text, options = { delay: 50 }) {
+    return (0, _utils.nextTickPromise)().then(() => {
+      if (!target) {
+        throw new Error('Must pass an element or selector to `typeIn`.');
+      }
+
+      const element = (0, _getElement.default)(target);
+      if (!element) {
+        throw new Error(`Element not found when calling \`typeIn('${target}')\``);
+      }
+      let isControl = (0, _isFormControl.default)(element);
+      if (!isControl) {
+        throw new Error('`typeIn` is only usable on form controls.');
+      }
+
+      if (typeof text === 'undefined' || text === null) {
+        throw new Error('Must provide `text` when calling `typeIn`.');
+      }
+
+      (0, _focus.__focus__)(element);
+
+      return fillOut(element, text, options.delay).then(() => (0, _fireEvent.default)(element, 'change')).then(_settled.default);
+    });
+  }
+
+  // eslint-disable-next-line require-jsdoc
+  function fillOut(element, text, delay) {
+    const inputFunctions = text.split('').map(character => keyEntry(element, character, delay));
+    return inputFunctions.reduce((currentPromise, func) => {
+      return currentPromise.then(() => delayedExecute(func, delay));
+    }, Ember.RSVP.Promise.resolve());
+  }
+
+  // eslint-disable-next-line require-jsdoc
+  function keyEntry(element, character) {
+    const charCode = character.charCodeAt();
+
+    const eventOptions = {
+      bubbles: true,
+      cancellable: true,
+      charCode
+    };
+
+    const keyEvents = {
+      down: new KeyboardEvent('keydown', eventOptions),
+      press: new KeyboardEvent('keypress', eventOptions),
+      up: new KeyboardEvent('keyup', eventOptions)
+    };
+
+    return function () {
+      element.dispatchEvent(keyEvents.down);
+      element.dispatchEvent(keyEvents.press);
+      element.value = element.value + character;
+      (0, _fireEvent.default)(element, 'input');
+      element.dispatchEvent(keyEvents.up);
+    };
+  }
+
+  // eslint-disable-next-line require-jsdoc
+  function delayedExecute(func, delay) {
+    return new Ember.RSVP.Promise(resolve => {
+      setTimeout(resolve, delay);
+    }).then(func);
   }
 });
 define('@ember/test-helpers/dom/wait-for', ['exports', '@ember/test-helpers/wait-until', '@ember/test-helpers/dom/-get-element', '@ember/test-helpers/dom/-get-elements', '@ember/test-helpers/dom/-to-array', '@ember/test-helpers/-utils'], function (exports, _waitUntil, _getElement, _getElements, _toArray, _utils) {
@@ -9931,12 +10152,15 @@ define('@ember/test-helpers/dom/wait-for', ['exports', '@ember/test-helpers/wait
     @param {Object} [options] the options to be used
     @param {number} [options.timeout=1000] the time to wait (in ms) for a match
     @param {number} [options.count=null] the number of elements that should match the provided selector (null means one or more)
-    @returns {Element|Array<Element>} the element (or array of elements) that were being waited upon
+    @return {Promise<Element|Element[]>} resolves when the element(s) appear on the page
   */
-  function waitFor(selector, { timeout = 1000, count = null, timeoutMessage = 'waitFor timed out' } = {}) {
+  function waitFor(selector, { timeout = 1000, count = null, timeoutMessage } = {}) {
     return (0, _utils.nextTickPromise)().then(() => {
       if (!selector) {
         throw new Error('Must pass a selector to `waitFor`.');
+      }
+      if (!timeoutMessage) {
+        timeoutMessage = `waitFor timed out waiting for selector "${selector}"`;
       }
 
       let callback;
@@ -9998,7 +10222,7 @@ define('@ember/test-helpers/has-ember-version', ['exports'], function (exports) 
     return actualMajor > major || actualMajor === major && actualMinor >= minor;
   }
 });
-define('@ember/test-helpers/index', ['exports', '@ember/test-helpers/resolver', '@ember/test-helpers/application', '@ember/test-helpers/setup-context', '@ember/test-helpers/teardown-context', '@ember/test-helpers/setup-rendering-context', '@ember/test-helpers/teardown-rendering-context', '@ember/test-helpers/setup-application-context', '@ember/test-helpers/teardown-application-context', '@ember/test-helpers/settled', '@ember/test-helpers/wait-until', '@ember/test-helpers/validate-error-handler', '@ember/test-helpers/dom/click', '@ember/test-helpers/dom/tap', '@ember/test-helpers/dom/focus', '@ember/test-helpers/dom/blur', '@ember/test-helpers/dom/trigger-event', '@ember/test-helpers/dom/trigger-key-event', '@ember/test-helpers/dom/fill-in', '@ember/test-helpers/dom/wait-for', '@ember/test-helpers/dom/get-root-element', '@ember/test-helpers/dom/find', '@ember/test-helpers/dom/find-all'], function (exports, _resolver, _application, _setupContext, _teardownContext, _setupRenderingContext, _teardownRenderingContext, _setupApplicationContext, _teardownApplicationContext, _settled, _waitUntil, _validateErrorHandler, _click, _tap, _focus, _blur, _triggerEvent, _triggerKeyEvent, _fillIn, _waitFor, _getRootElement, _find, _findAll) {
+define('@ember/test-helpers/index', ['exports', '@ember/test-helpers/resolver', '@ember/test-helpers/application', '@ember/test-helpers/setup-context', '@ember/test-helpers/teardown-context', '@ember/test-helpers/setup-rendering-context', '@ember/test-helpers/teardown-rendering-context', '@ember/test-helpers/setup-application-context', '@ember/test-helpers/teardown-application-context', '@ember/test-helpers/settled', '@ember/test-helpers/wait-until', '@ember/test-helpers/validate-error-handler', '@ember/test-helpers/dom/click', '@ember/test-helpers/dom/double-click', '@ember/test-helpers/dom/tap', '@ember/test-helpers/dom/focus', '@ember/test-helpers/dom/blur', '@ember/test-helpers/dom/trigger-event', '@ember/test-helpers/dom/trigger-key-event', '@ember/test-helpers/dom/fill-in', '@ember/test-helpers/dom/wait-for', '@ember/test-helpers/dom/get-root-element', '@ember/test-helpers/dom/find', '@ember/test-helpers/dom/find-all', '@ember/test-helpers/dom/type-in'], function (exports, _resolver, _application, _setupContext, _teardownContext, _setupRenderingContext, _teardownRenderingContext, _setupApplicationContext, _teardownApplicationContext, _settled, _waitUntil, _validateErrorHandler, _click, _doubleClick, _tap, _focus, _blur, _triggerEvent, _triggerKeyEvent, _fillIn, _waitFor, _getRootElement, _find, _findAll, _typeIn) {
   'use strict';
 
   Object.defineProperty(exports, "__esModule", {
@@ -10160,6 +10384,12 @@ define('@ember/test-helpers/index', ['exports', '@ember/test-helpers/resolver', 
       return _click.default;
     }
   });
+  Object.defineProperty(exports, 'doubleClick', {
+    enumerable: true,
+    get: function () {
+      return _doubleClick.default;
+    }
+  });
   Object.defineProperty(exports, 'tap', {
     enumerable: true,
     get: function () {
@@ -10218,6 +10448,12 @@ define('@ember/test-helpers/index', ['exports', '@ember/test-helpers/resolver', 
     enumerable: true,
     get: function () {
       return _findAll.default;
+    }
+  });
+  Object.defineProperty(exports, 'typeIn', {
+    enumerable: true,
+    get: function () {
+      return _typeIn.default;
     }
   });
 });
@@ -10340,6 +10576,13 @@ define('@ember/test-helpers/settled', ['exports', '@ember/test-helpers/-utils', 
     @private
   */
   function _teardownAJAXHooks() {
+    // jQuery will not invoke `ajaxComplete` if
+    //    1. `transport.send` throws synchronously and
+    //    2. it has an `error` option which also throws synchronously
+
+    // We can no longer handle any remaining requests
+    requests = [];
+
     if (!Ember.$) {
       return;
     }
@@ -10392,18 +10635,18 @@ define('@ember/test-helpers/settled', ['exports', '@ember/test-helpers/-utils', 
   /**
     Check various settledness metrics, and return an object with the following properties:
   
-    * `hasRunLoop` - Checks if a run-loop has been started. If it has, this will
+    - `hasRunLoop` - Checks if a run-loop has been started. If it has, this will
       be `true` otherwise it will be `false`.
-    * `hasPendingTimers` - Checks if there are scheduled timers in the run-loop.
+    - `hasPendingTimers` - Checks if there are scheduled timers in the run-loop.
       These pending timers are primarily registered by `Ember.run.schedule`. If
       there are pending timers, this will be `true`, otherwise `false`.
-    * `hasPendingWaiters` - Checks if any registered test waiters are still
+    - `hasPendingWaiters` - Checks if any registered test waiters are still
       pending (e.g. the waiter returns `true`). If there are pending waiters,
       this will be `true`, otherwise `false`.
-    * `hasPendingRequests` - Checks if there are pending AJAX requests (based on
+    - `hasPendingRequests` - Checks if there are pending AJAX requests (based on
       `ajaxSend` / `ajaxComplete` events triggered by `jQuery.ajax`). If there
       are pending requests, this will be `true`, otherwise `false`.
-    * `pendingRequestCount` - The count of pending AJAX requests.
+    - `pendingRequestCount` - The count of pending AJAX requests.
   
     @public
     @returns {Object} object with properties for each of the metrics used to determine settledness
@@ -10516,8 +10759,8 @@ define('@ember/test-helpers/setup-application-context', ['exports', '@ember/test
     Used by test framework addons to setup the provided context for working with
     an application (e.g. routing).
   
-    `setupContext` must have been ran on the provided context prior to calling
-    `setupApplicatinContext`.
+    `setupContext` must have been run on the provided context prior to calling
+    `setupApplicationContext`.
   
     Sets up the basic framework used by application tests.
   
@@ -11681,21 +11924,6 @@ define('ember-qunit/index', ['exports', 'ember-qunit/legacy-2-x/module-for', 'em
     _qunit.default.done(_testIsolationValidation.reportIfTestNotIsolated);
   }
 
-  // This polyfills the changes from https://github.com/qunitjs/qunit/pull/1279
-  // and should be removed when that change is released and included in a release
-  // version of QUnit
-  function polyfillMemoryLeakPrevention() {
-    _qunit.default.testDone(function () {
-      // release the test callback
-      _qunit.default.config.current.callback = undefined;
-    });
-
-    _qunit.default.moduleDone(function () {
-      // release the module hooks
-      _qunit.default.config.current.module.hooks = {};
-    });
-  }
-
   /**
      @method start
      @param {Object} [options] Options to be used for enabling/disabling behaviors
@@ -11713,7 +11941,6 @@ define('ember-qunit/index', ['exports', 'ember-qunit/legacy-2-x/module-for', 'em
      of `Ember.onerror` will be disabled.
      @param {Boolean} [options.setupTestIsolationValidation] If `false` test isolation validation
      will be disabled.
-     @param {Boolean} [options._polyfillMemoryLeakPrevention] If `false` the polyfilled memory leak prevention will not be enabled.
    */
   function start(options = {}) {
     if (options.loadTests !== false) {
@@ -11738,10 +11965,6 @@ define('ember-qunit/index', ['exports', 'ember-qunit/legacy-2-x/module-for', 'em
 
     if (typeof options.setupTestIsolationValidation !== 'undefined' && options.setupTestIsolationValidation !== false) {
       setupTestIsolationValidation();
-    }
-
-    if (options._polyfillMemoryLeakPrevention !== false) {
-      polyfillMemoryLeakPrevention();
     }
 
     if (options.startTests !== false) {
@@ -11935,8 +12158,19 @@ define('ember-qunit/test-loader', ['exports', 'qunit', 'ember-cli-test-loader/te
   let moduleLoadFailures = [];
 
   _qunit.default.done(function () {
-    if (moduleLoadFailures.length) {
-      throw new Error('\n' + moduleLoadFailures.join('\n'));
+    let length = moduleLoadFailures.length;
+
+    try {
+      if (length === 0) {
+        // do nothing
+      } else if (length === 1) {
+        throw moduleLoadFailures[0];
+      } else {
+        throw new Error('\n' + moduleLoadFailures.join('\n'));
+      }
+    } finally {
+      // ensure we release previously captured errors.
+      moduleLoadFailures = [];
     }
   });
 
@@ -12125,13 +12359,6 @@ define('ember-test-helpers/legacy-0-6-x/abstract-test-module', ['exports', 'embe
   Object.defineProperty(exports, "__esModule", {
     value: true
   });
-
-
-  // calling this `merge` here because we cannot
-  // actually assume it is like `Object.assign`
-  // with > 2 args
-  const merge = Ember.assign || Ember.merge;
-
   exports.default = class {
     constructor(name, options) {
       this.context = undefined;
@@ -12243,11 +12470,10 @@ define('ember-test-helpers/legacy-0-6-x/abstract-test-module', ['exports', 'embe
     setupContext(options) {
       let context = this.getContext();
 
-      merge(context, {
+      Ember.assign(context, {
         dispatcher: null,
         inject: {}
-      });
-      merge(context, options);
+      }, options);
 
       this.setToString();
       (0, _testHelpers.setContext)(context);
@@ -12577,7 +12803,7 @@ define('ember-test-helpers/legacy-0-6-x/test-module-for-component', ['exports', 
         this.setupSteps.push(this.setupComponentUnitTest);
       } else {
         this.callbacks.subject = function () {
-          throw new Error("component integration tests do not support `subject()`. Instead, render the component as if it were HTML: `this.render('<my-component foo=true>');`. For more information, read: http://guides.emberjs.com/v2.2.0/testing/testing-components/");
+          throw new Error("component integration tests do not support `subject()`. Instead, render the component as if it were HTML: `this.render('<my-component foo=true>');`. For more information, read: http://guides.emberjs.com/current/testing/testing-components/");
         };
         this.setupSteps.push(this.setupComponentIntegrationTest);
         this.teardownSteps.unshift(this.teardownComponent);
