@@ -17,6 +17,8 @@ Router.map(function() {
     this.route('eje4');
     this.route('estrategia-ambiental');
   });
+  this.route('mision');
+  this.route('vision');
 });
 
 export default Router;
