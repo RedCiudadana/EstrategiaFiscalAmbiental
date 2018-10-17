@@ -70,6 +70,11 @@ define('estrategia-fiscal-ambiental/tests/app.lint-test', [], function () {
     assert.ok(true, 'routes/legislativo.js should pass ESLint\n\n');
   });
 
+  QUnit.test('routes/mision.js', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'routes/mision.js should pass ESLint\n\n');
+  });
+
   QUnit.test('routes/nosotros.js', function (assert) {
     assert.expect(1);
     assert.ok(true, 'routes/nosotros.js should pass ESLint\n\n');
@@ -78,6 +83,11 @@ define('estrategia-fiscal-ambiental/tests/app.lint-test', [], function () {
   QUnit.test('routes/objetivo.js', function (assert) {
     assert.expect(1);
     assert.ok(true, 'routes/objetivo.js should pass ESLint\n\n');
+  });
+
+  QUnit.test('routes/vision.js', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'routes/vision.js should pass ESLint\n\n');
   });
 });
 define('estrategia-fiscal-ambiental/tests/test-helper', ['estrategia-fiscal-ambiental/app', 'estrategia-fiscal-ambiental/config/environment', '@ember/test-helpers', 'ember-qunit'], function (_app, _environment, _testHelpers, _emberQunit) {
@@ -147,6 +157,11 @@ define('estrategia-fiscal-ambiental/tests/tests.lint-test', [], function () {
     assert.ok(true, 'unit/routes/legislativo-test.js should pass ESLint\n\n');
   });
 
+  QUnit.test('unit/routes/mision-test.js', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'unit/routes/mision-test.js should pass ESLint\n\n');
+  });
+
   QUnit.test('unit/routes/nosotros-test.js', function (assert) {
     assert.expect(1);
     assert.ok(true, 'unit/routes/nosotros-test.js should pass ESLint\n\n');
@@ -155,6 +170,11 @@ define('estrategia-fiscal-ambiental/tests/tests.lint-test', [], function () {
   QUnit.test('unit/routes/objetivo-test.js', function (assert) {
     assert.expect(1);
     assert.ok(true, 'unit/routes/objetivo-test.js should pass ESLint\n\n');
+  });
+
+  QUnit.test('unit/routes/vision-test.js', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'unit/routes/vision-test.js should pass ESLint\n\n');
   });
 });
 define('estrategia-fiscal-ambiental/tests/unit/routes/biblioteca-test', ['qunit', 'ember-qunit'], function (_qunit, _emberQunit) {
@@ -277,6 +297,18 @@ define('estrategia-fiscal-ambiental/tests/unit/routes/legislativo-test', ['qunit
     });
   });
 });
+define('estrategia-fiscal-ambiental/tests/unit/routes/mision-test', ['qunit', 'ember-qunit'], function (_qunit, _emberQunit) {
+  'use strict';
+
+  (0, _qunit.module)('Unit | Route | mision', function (hooks) {
+    (0, _emberQunit.setupTest)(hooks);
+
+    (0, _qunit.test)('it exists', function (assert) {
+      let route = this.owner.lookup('route:mision');
+      assert.ok(route);
+    });
+  });
+});
 define('estrategia-fiscal-ambiental/tests/unit/routes/nosotros-test', ['qunit', 'ember-qunit'], function (_qunit, _emberQunit) {
   'use strict';
 
@@ -297,6 +329,18 @@ define('estrategia-fiscal-ambiental/tests/unit/routes/objetivo-test', ['qunit', 
 
     (0, _qunit.test)('it exists', function (assert) {
       let route = this.owner.lookup('route:objetivo');
+      assert.ok(route);
+    });
+  });
+});
+define('estrategia-fiscal-ambiental/tests/unit/routes/vision-test', ['qunit', 'ember-qunit'], function (_qunit, _emberQunit) {
+  'use strict';
+
+  (0, _qunit.module)('Unit | Route | vision', function (hooks) {
+    (0, _emberQunit.setupTest)(hooks);
+
+    (0, _qunit.test)('it exists', function (assert) {
+      let route = this.owner.lookup('route:vision');
       assert.ok(route);
     });
   });
